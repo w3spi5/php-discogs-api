@@ -2,4 +2,6 @@
 vendor
 composer.lock
 env/
+.env
 *.cache
+.github
