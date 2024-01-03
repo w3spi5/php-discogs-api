@@ -10,6 +10,10 @@ The Discogs API is a REST-based interface. By using this library you don't have 
 API: all the hard work has already be done.
 
 
+Fork
+--------------
+In meantime @calliostro wake up, I need this package to work
+
 License
 -------
 
