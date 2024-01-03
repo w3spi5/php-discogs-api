@@ -1,9 +1,9 @@
 Discogs Api
 ===========
 
-[![Build Status](https://api.travis-ci.com/calliostro/php-discogs-api.png)](https://app.travis-ci.com/github/calliostro/php-discogs-api)
-[![Version](https://poser.pugx.org/calliostro/php-discogs-api/version)](//packagist.org/packages/calliostro/php-discogs-api)
-[![License](https://poser.pugx.org/calliostro/php-discogs-api/license)](//packagist.org/packages/calliostro/php-discogs-api)
+[![Build Status](https://api.travis-ci.com/w3spi5/php-discogs-api.png)](https://app.travis-ci.com/github/w3spi5/php-discogs-api)
+[![Version](https://poser.pugx.org/w3spi5/php-discogs-api/version)](//packagist.org/packages/w3spi5/php-discogs-api)
+[![License](https://poser.pugx.org/w3spi5/php-discogs-api/license)](//packagist.org/packages/w3spi5/php-discogs-api)
 
 This library is a PHP 7.3 / PHP 8.x implementation of the [Discogs API v2.0.](https://www.discogs.com/developers/index.html)
 The Discogs API is a REST-based interface. By using this library you don't have to worry about communicating with the
@@ -23,7 +23,7 @@ This library is released under the MIT license. See the complete license in the 
 Symfony Bundle
 --------------
 
-For the integration of Discogs into Symfony 5 or Symfony 6, see [calliostro/discogs-bundle](https://github.com/calliostro/discogs-bundle).
+For the integration of Discogs into Symfony 5 or Symfony 6, see [w3spi5/discogs-bundle](https://github.com/w3spi5/discogs-bundle).
 
 
 Installation
@@ -32,7 +32,7 @@ Installation
 Start by [installing composer](https://getcomposer.org/doc/01-basic-usage.md#installation).
 Next do:
 
-    $ composer require calliostro/php-discogs-api
+    $ composer require w3spi5/php-discogs-api
 
 Requirements
 ------------

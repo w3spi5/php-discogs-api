@@ -1,5 +1,5 @@
 {
-    "name": "calliostro/php-discogs-api",
+    "name": "w3spi5/php-discogs-api",
     "description": "The Discogs API makes it easy for developers to communicate with the Discogs platform",
     "type": "library",
     "keywords": ["discogs", "api"],
@@ -20,8 +20,8 @@
             "email": "richard@vandenbrand.org"
         },
         {
-            "name": "calliostro",
-            "email": "calliostro@gmail.com"
+            "name": "Wespify Solutions",
+            "email": "naetheria@wespify.com"
         }
     ],
     "autoload": {
@@ -33,7 +33,7 @@
         }
     },
     "suggest": {
-        "calliostro/discogs-bundle": "For integrating Discogs into Symfony 5",
+        "w3spi5/discogs-bundle": "For integrating Discogs into Symfony 5",
         "ricbra/discogs-bundle": "For integrating Discogs into Symfony 2"
     },
     "scripts":{
