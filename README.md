@@ -12,6 +12,7 @@ API: all the hard work has already be done.
 Fork
 --------------
 In meantime @calliostro wake up, I need this package to work
+Edit: @calliostro has updated, but I decided to stay on my own package while I pulled improvments into my current package
 
 License
 -------
@@ -19,10 +20,10 @@ License
 This library is released under the MIT license. See the complete license in the LICENSE file.
 
 
-Symfony Bundle
---------------
+Symfony Bundle by Calliostro
+----------------------------
 
-For the integration of Discogs into Symfony 5 or Symfony 6, see [w3spi5/discogs-bundle](https://github.com/w3spi5/discogs-bundle).
+For the integration of Discogs into Symfony 5+, see [calliostro/discogs-bundle](https://github.com/calliostro/discogs-bundle).
 
 
 Installation
