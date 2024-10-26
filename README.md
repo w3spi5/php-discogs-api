@@ -11,7 +11,7 @@ API: all the hard work has already be done.
 
 Fork
 --------------
-In meantime @calliostro wake up, I need this package to work
+In meantime @calliostro wake up, I need this package to work<br>
 Edit: @calliostro has updated, but I decided to stay on my own package while I pulled improvments into my current package
 
 License
@@ -393,6 +393,7 @@ Thanks to
 
 Initial development by [ricbra/php-discogs-api](https://github.com/ricbra/php-discogs-api).
 
-Porting to PHP 7 and adding more Discos API methods by [AnssiAhola/php-discogs-api](https://github.com/AnssiAhola/php-discogs-api).
+Porting to PHP 7 and adding more Discos API methods by [AnssiAhola/php-discogs-api](https://github.com/AnssiAhola/php-discogs-api).<br>
+And the implication of [Calliostro/php-discogs-api](https://github.com/calliostro/php-discogs-api).<br>
 
 This API is build upon the shoulders of [Guzzle 7](https://docs.guzzlephp.org/en/latest/).
