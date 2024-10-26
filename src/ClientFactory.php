@@ -29,7 +29,7 @@ final class ClientFactory
         ];
 
         $client = new Client(self::mergeRecursive($defaultConfig, $config));
-        $service = include __DIR__ . '/../../resources/service.php';
+        $service = include __DIR__ . '/../resources/service.php';
         $description = new Description($service);
 
         return new DiscogsClient($client, $description);
