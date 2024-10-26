@@ -1,8 +1,11 @@
 Discogs Api
 ===========
 
-[![Version](https://poser.pugx.org/w3spi5/php-discogs-api/version)](//packagist.org/packages/w3spi5/php-discogs-api)
-[![License](https://poser.pugx.org/w3spi5/php-discogs-api/license)](//packagist.org/packages/w3spi5/php-discogs-api)
+[![Latest Stable Version](http://poser.pugx.org/w3spi5/php-discogs-api/v/stable?cache-bust=1)](https://packagist.org/packages/w3spi5/php-discogs-api)
+[![Total Downloads](http://poser.pugx.org/w3spi5/php-discogs-api/downloads)](https://packagist.org/packages/w3spi5/php-discogs-api)
+[![PHP Version Require](http://poser.pugx.org/w3spi5/php-discogs-api/require/php)](https://packagist.org/packages/w3spi5/php-discogs-api)
+[![License](http://poser.pugx.org/w3spi5/php-discogs-api/license)](https://packagist.org/packages/w3spi5/php-discogs-api)
+[![Dependents](http://poser.pugx.org/w3spi5/php-discogs-api/dependents)](https://packagist.org/packages/w3spi5/php-discogs-api)
 
 This library is a PHP 7.3 / PHP 8.x implementation of the [Discogs API v2.0.](https://www.discogs.com/developers/index.html)
 The Discogs API is a REST-based interface. By using this library you don't have to worry about communicating with the
