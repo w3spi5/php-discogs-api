@@ -21,7 +21,9 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Wespify\\Discogs": "src/" }
+        "psr-4": {
+            "Wespify\\Discogs\\": "src/"
+        }
     },
     "extra": {
         "branch-alias": {
