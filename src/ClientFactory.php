@@ -1,6 +1,12 @@
 <?php
+
 /*
- * This file is part of the php-discogs-api.
+ * This file is part of the ricbra/discogs-bundle,
+ * Forked by AnssiAhola/php-discogs-api,
+ * Forked by calliostro/php-discogs-api,
+ * and then forked by me, w3spi5/php-discogs-api.
+ *
+ * Initial copyright. The actual version follow same rights, see below.
  *
  * (c) Richard van den Brand <richard@vandenbrand.org>
  *
@@ -8,7 +14,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Discogs;
+namespace Wespify\Discogs;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Command\Guzzle\Description;
@@ -29,7 +35,7 @@ final class ClientFactory
         return new DiscogsClient($client, $description);
     }
 
-    private static function &mergeRecursive(array &$array1, &$array2 = null): array
+    private static function &mergeRecursive(array $array1, $array2 = null): array
     {
         $merged = $array1;
 
@@ -37,7 +43,7 @@ final class ClientFactory
             foreach ($array2 as $key => $val) {
                 if (is_array($val)) {
                     $merged[$key] = isset($merged[$key]) && is_array($merged[$key]) ?
-                        self::mergeRecursive($merged[$key], $array2[$key]) : $val;
+                        self::mergeRecursive($merged[$key], $val) : $val;
                 } else {
                     $merged[$key] = $val;
                 }

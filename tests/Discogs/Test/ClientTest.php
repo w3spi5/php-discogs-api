@@ -1,6 +1,12 @@
 <?php
+
 /*
- * This file is part of the php-discogs-api.
+ * This file is part of the ricbra/discogs-bundle,
+ * Forked by AnssiAhola/php-discogs-api,
+ * Forked by calliostro/php-discogs-api,
+ * and then forked by me, w3spi5/php-discogs-api.
+ *
+ * Initial copyright. The actual version follow same rights, see below.
  *
  * (c) Richard van den Brand <richard@vandenbrand.org>
  *
@@ -8,10 +14,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Discogs\Test;
+namespace Wespify\Discogs\Test;
 
-use Discogs\ClientFactory;
-use Discogs\DiscogsClient;
+use Wespify\Discogs\ClientFactory;
+use Wespify\Discogs\DiscogsClient;
 use GuzzleHttp\Command\Exception\CommandException;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Handler\MockHandler;

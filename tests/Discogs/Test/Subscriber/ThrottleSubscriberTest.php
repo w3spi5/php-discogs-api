@@ -1,14 +1,22 @@
 <?php
+
 /*
- * (c) Waarneembemiddeling.nl
+ * This file is part of the ricbra/discogs-bundle,
+ * Forked by AnssiAhola/php-discogs-api,
+ * Forked by calliostro/php-discogs-api,
+ * and then forked by me, w3spi5/php-discogs-api.
+ *
+ * Initial copyright. The actual version follow same rights, see below.
+ *
+ * (c) Richard van den Brand <richard@vandenbrand.org>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Discogs\Test\Subscriber;
+namespace Wespify\Discogs\Test\Subscriber;
 
-use Discogs\Subscriber\ThrottleSubscriber;
+use Wespify\Discogs\Subscriber\ThrottleSubscriber;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -90,7 +98,7 @@ final class ThrottleSubscriberTest extends TestCase
             $client->request('GET', '/');
         } catch (Exception $e) {
             $this->assertInstanceOf(ClientException::class, $e);
-            $this->assertEquals($e->getCode(), 429);
+            $this->assertEquals(429, $e->getCode());
         }
 
         $after = microtime(true);

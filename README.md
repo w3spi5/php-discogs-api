@@ -1,7 +1,6 @@
 Discogs Api
 ===========
 
-[![Build Status](https://api.travis-ci.com/w3spi5/php-discogs-api.png)](https://app.travis-ci.com/github/w3spi5/php-discogs-api)
 [![Version](https://poser.pugx.org/w3spi5/php-discogs-api/version)](//packagist.org/packages/w3spi5/php-discogs-api)
 [![License](https://poser.pugx.org/w3spi5/php-discogs-api/license)](//packagist.org/packages/w3spi5/php-discogs-api)
 
@@ -47,7 +46,7 @@ Creating a new instance is as simple as:
 ```php
 <?php
 
-$client = Discogs\ClientFactory::factory([]);
+$client = Wespify\Discogs\ClientFactory::factory([]);
 ```
 
 ### User-Agent
@@ -56,7 +55,7 @@ Discogs requires that you supply a User-Agent. You can do this easily:
 ```php
 <?php
 
-$client = Discogs\ClientFactory::factory([    
+$client = Wespify\Discogs\ClientFactory::factory([    
     'headers' => ['User-Agent' => 'your-app-name/0.1 +https://www.awesomesite.com'],
 ]);
 ```
@@ -69,10 +68,10 @@ prevent getting errors or banned:
 <?php
 
 $handler = \GuzzleHttp\HandlerStack::create();
-$throttle = new Discogs\Subscriber\ThrottleSubscriber();
+$throttle = new Wespify\Discogs\Subscriber\ThrottleSubscriber();
 $handler->push(\GuzzleHttp\Middleware::retry($throttle->decider(), $throttle->delay()));
 
-$client = Discogs\ClientFactory::factory(['handler'=>$handler]);
+$client = Wespify\Discogs\ClientFactory::factory(['handler'=>$handler]);
 ```
 
 #### Authentication
@@ -125,7 +124,7 @@ $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
 ]);
 $handler = GuzzleHttp\HandlerStack::create();
 $handler->push($oauth);
-$client = Discogs\ClientFactory::factory([
+$client = Wespify\Discogs\ClientFactory::factory([
     'handler' => $handler,
     'auth' => 'oauth'
 ]);
@@ -141,7 +140,7 @@ $container = [];
 $history = GuzzleHttp\Middleware::History($container);
 $handler = GuzzleHttp\HandlerStack::create();
 $handler->push($history);
-$client = Discogs\ClientFactory::factory([ 
+$client = Wespify\Discogs\ClientFactory::factory([ 
     'handler' => $handler
 ]);
 
@@ -247,7 +246,9 @@ foreach ($release['images'] as $image) {
 
 ```
 
-### Get user lists
+### User lists
+
+#### Get user lists
 
 ```php
 <?php
@@ -259,7 +260,7 @@ $userLists = $client->getUserLists([
 ]);
 ```
 
-### Get list
+#### Get user list items
 
 ```php
 <?php
