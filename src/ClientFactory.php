@@ -28,7 +28,7 @@ final class ClientFactory
             'auth' => 'oauth',
         ];
 
-        $client = new Client(self::mergeRecursive($defaultConfig, $config));
+        $client = new Client(self::mergeRecursive($defaultConfig, $config ?? []));
         $service = include __DIR__ . '/../resources/service.php';
         $description = new Description($service);
 
@@ -49,7 +49,6 @@ final class ClientFactory
                 }
             }
         }
-
         return $merged;
     }
 }

@@ -185,6 +185,32 @@ return [
                 ]
             ]
         ],
+        'getReleaseRating' => [
+            'httpMethod' => 'GET',
+            'uri' => 'releases/{release_id}/rating',
+            'summary' => 'Retrieves the community release rating average and count. ALready included into release object.',
+            'responseModel' => 'GetResponse',
+            'parameters' => [
+                'release_id' => [
+                    'type' => 'number',
+                    'location' => 'uri',
+                    'required' => true,
+                ]
+            ]
+        ],
+        'getReleaseStats' => [
+            'httpMethod' => 'GET',
+            'uri' => 'releases/{release_id}/stats',
+            'summary' => 'Retrieves the release\'s "have" and "want" counts. Don\'t work, returns is_offensive:false always. This is already included in community in the release object. See here : https://www.discogs.com/forum/thread/865093.',
+            'responseModel' => 'GetResponse',
+            'parameters' => [
+                'release_id' => [
+                    'type' => 'number',
+                    'location' => 'uri',
+                    'required' => true,
+                ]
+            ]
+        ],
         'getMaster' => [
             'httpMethod' => 'GET',
             'uri' => 'masters/{id}',
@@ -591,12 +617,89 @@ return [
                 ]
             ]
         ],
-        'getWantlist' => [
+        'createCollectionFolder' => [
+          'httpMethod' => 'POST',
+          'uri' => 'users/{username}/collection/folders',
+          'summary' => 'Create a new folder in a user\'s collection (Authentication as the collection owner is required.).',
+          'responseModel' => 'GetResponse',
+          'parameters' => [
+              'username' => [
+                'type' => 'string',
+                'location' => 'uri',
+                'required' => true
+              ],
+              'name' => [
+                  'type' => 'string',
+                  'location' => 'json',
+                  'required' => false,
+              ]
+          ]
+        ],
+        'getCollectionFolder' => [
             'httpMethod' => 'GET',
-            'uri' => 'users/{username}/wants',
+            'uri' => 'users/{username}/collection/folders/{folder_id}',
+            'summary' => 'Retrieve metadata about a folder in a user\'s collection. If folder_id is not 0, authentication as the collection owner is required.',
             'responseModel' => 'GetResponse',
             'parameters' => [
                 'username' => [
+                    'type' => 'string',
+                    'location' => 'uri',
+                    'required' => true
+                ],
+                'folder_id' => [
+                    'type' => 'number',
+                    'location' => 'uri',
+                    'required' => true
+                ],
+            ]
+        ],
+        'editCollectionFolder' => [
+          'httpMethod' => 'POST',
+          'uri' => 'users/{username}/collection/folders/{folder_id}',
+          'summary' => 'Edit a folder\'s metadata. Folders 0 and 1 cannot be renamed. Authentication as the collection owner is required.',
+          'responseModel' => 'GetResponse',
+          'parameters' => [
+              'username' => [
+                  'type' => 'string',
+                  'location' => 'uri',
+                  'required' => true
+              ],
+              'folder_id' => [
+                  'type' => 'number',
+                  'location' => 'uri',
+                  'required' => true,
+              ]
+          ]
+        ],
+        'deleteCollectionFolder' => [
+          'httpMethod' => 'DELETE',
+          'uri' => 'users/{username}/collection/folders/{folder_id}',
+          'summary' => 'Delete a folder from a user\'s collection. A folder must be empty before it can be deleted. Authentication as the collection owner is required.',
+          'responseModel' => 'GetResponse',
+          'parameters' => [
+              'username' => [
+                  'type' => 'string',
+                  'location' => 'uri',
+                  'required' => true
+              ],
+              'folder_id' => [
+                  'type' => 'number',
+                  'location' => 'uri',
+                  'required' => true,
+              ]
+          ]
+        ],
+        'getCollectionItemsByFolder' => [
+            'httpMethod' => 'GET',
+            'uri' => 'users/{username}/collection/folders/{folder_id}/releases',
+            'responseModel' => 'GetResponse',
+            'parameters' => [
+                'username' => [
+                    'type' => 'string',
+                    'location' => 'uri',
+                    'required' => true
+                ],
+                'folder_id' => [
                     'type' => 'string',
                     'location' => 'uri',
                     'required' => true
@@ -610,37 +713,50 @@ return [
                     'type' => 'string',
                     'location' => 'query',
                     'required' => false
-                ]
-            ]
-        ],
-        'getCollectionFolder' => [
-            'httpMethod' => 'GET',
-            'uri' => 'users/{username}/collection/folders/{folder_id}',
-            'responseModel' => 'GetResponse',
-            'parameters' => [
-                'username' => [
-                    'type' => 'string',
-                    'location' => 'uri',
-                    'required' => true
                 ],
-                'folder_id' => [
+                'sort' => [
+                    // label, artist, title, catno, format, rating, added, year
                     'type' => 'string',
-                    'location' => 'uri',
-                    'required' => true
+                    'location' => 'query',
+                    'required' => false
+                ],
+                'sort_order' => [
+                    // asc or desc
+                    'type' => 'string',
+                    'location' => 'query',
+                    'required' => false
                 ],
             ]
         ],
-        'getCollectionItemsByFolder' => [
+        'addReleaseToCollectionFolder' => [
+          'httpMethod' => 'POST',
+          'uri' => 'users/{username}/collection/folders/{folder_id}/releases/{release_id}',
+          'summary' => 'Add a release to a folder in a user\'s collection. The folder_id must be non-zero, you can use 1 for "Uncategorized". Authentication as the collection owner is required.',
+          'responseModel' => 'GetResponse',
+          'parameters' => [
+              'username' => [
+                  'type' => 'string',
+                  'location' => 'uri',
+                  'required' => true
+              ],
+              'folder_id' => [
+                  'type' => 'number',
+                  'location' => 'uri',
+                  'required' => true,
+              ],
+              'release_id' => [
+                  'type' => 'number',
+                  'location' => 'uri',
+                  'required' => true,
+              ]
+          ]
+        ],
+        'getWantlist' => [
             'httpMethod' => 'GET',
-            'uri' => 'users/{username}/collection/folders/{folder_id}/releases',
+            'uri' => 'users/{username}/wants',
             'responseModel' => 'GetResponse',
             'parameters' => [
                 'username' => [
-                    'type' => 'string',
-                    'location' => 'uri',
-                    'required' => true
-                ],
-                'folder_id' => [
                     'type' => 'string',
                     'location' => 'uri',
                     'required' => true
@@ -668,14 +784,14 @@ return [
                     'required' => true
                 ],
                 'per_page' => [
-                	'type' => 'integer',
-                	'location' => 'query',
-                	'required' => false
+                  'type' => 'integer',
+                  'location' => 'query',
+                  'required' => false
                 ],
                 'page' => [
-                	'type' => 'string',
-                	'location' => 'query',
-                	'required' => false
+                  'type' => 'string',
+                  'location' => 'query',
+                  'required' => false
                 ]
             ]
         ],
